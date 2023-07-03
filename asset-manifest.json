@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/blogstagram/static/css/main.b2f844f6.css",
+    "main.js": "/blogstagram/static/js/main.3ddfee2f.js",
+    "index.html": "/blogstagram/index.html",
+    "main.b2f844f6.css.map": "/blogstagram/static/css/main.b2f844f6.css.map",
+    "main.3ddfee2f.js.map": "/blogstagram/static/js/main.3ddfee2f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b2f844f6.css",
+    "static/js/main.3ddfee2f.js"
+  ]
+}
