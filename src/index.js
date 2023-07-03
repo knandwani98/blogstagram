@@ -14,7 +14,7 @@ import Login from "./Components/Login";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <BrowserRouter basename="blogstagram">
+  <BrowserRouter basename="/blogstagram">
     <Header />
     <Sidebar />
     <Switch>
