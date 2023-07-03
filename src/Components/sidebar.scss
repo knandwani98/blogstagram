@@ -1,0 +1,57 @@
+// Sidebar
+.side-bar {
+  width: var(--sidebar-width);
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--dark);
+  padding-top: 4rem;
+
+  nav {
+    .active {
+      color: var(--accent) !important;
+    }
+
+    h2 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      color: var(--light);
+      // margin: 1rem 0;
+      padding: 1rem 2rem;
+    }
+
+    li {
+      padding: 0.5rem 2rem;
+      color: var(--light);
+
+      &:hover {
+        background-color: var(--highlight);
+      }
+
+      span {
+        font-size: 1.1rem;
+        display: inline-block;
+        text-align: center;
+        margin-right: 1rem;
+      }
+    }
+  }
+
+  footer {
+    width: 100%;
+    position: absolute;
+    bottom: 3rem;
+    padding-inline: 2rem;
+
+    .join-btn {
+      margin-top: 1rem;
+      .logo {
+        opacity: 1;
+        font-size: 1rem !important;
+        color: white;
+        letter-spacing: -1px;
+      }
+    }
+  }
+}

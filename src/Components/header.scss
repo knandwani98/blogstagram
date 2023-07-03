@@ -1,0 +1,55 @@
+// HEADER
+
+.main-header {
+  height: var(--header-height) !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  z-index: 99;
+  background-color: var(--dark);
+
+  .search-bar {
+    width: 40vw;
+    position: relative;
+
+    input {
+      width: 100%;
+      border-radius: 100px;
+      background-color: var(--highlight);
+      border: none;
+      font-size: 1rem;
+      color: white;
+      padding: 0.8rem 3rem;
+
+      &:focus {
+        outline: 1px solid white;
+      }
+
+      &::-webkit-search-cancel-button {
+        appearance: none;
+      }
+    }
+
+    span {
+      position: absolute;
+      z-index: 999;
+      font-size: 1.2rem;
+    }
+
+    .search-icon {
+      left: 20px;
+      height: 100%;
+      justify-content: center;
+      color: var(--light);
+    }
+
+    .close-icon {
+      height: 100%;
+      // inset: 0;
+      right: 1rem !important;
+      justify-content: center;
+    }
+  }
+}
