@@ -1,12 +1,10 @@
 import React, { Component } from "react";
-import Card from "./Card";
+import Card from "../Components/Card";
 
 class Main extends Component {
   constructor(props) {
     super();
-    this.state = {
-      fetching: "feed",
-    };
+    this.state = {};
   }
 
   componentDidMount() {
@@ -18,7 +16,7 @@ class Main extends Component {
       this.props.fetchArticles();
     }
 
-    if (this.props.query && prevProps.query !== this.props.query) {
+    if (this.props.tag && prevProps.tag !== this.props.tag) {
       this.props.fetchArticles();
     }
   }

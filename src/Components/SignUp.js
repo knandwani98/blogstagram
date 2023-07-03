@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./form.scss";
+import "../style/form.scss";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 class SignUp extends Component {
@@ -18,17 +18,6 @@ class SignUp extends Component {
       },
     };
   }
-
-  handleErrors = () => {
-    let errors = this.state.errors;
-
-    console.log(errors);
-    if (!this.state.username) {
-      errors.username = "Username should not be empty";
-    }
-
-    this.setState({ errors });
-  };
 
   handleChange = ({ target }) => {
     const { name, value } = target;

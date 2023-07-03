@@ -1,5 +1,6 @@
 import React from "react";
-import "./card.scss";
+import "../style/card.scss";
+
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import Loader from "./Loader";
 

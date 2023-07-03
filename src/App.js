@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Tags from "./Components/Tags";
 import Main from "./Components/Main";
 import Pagination from "./Components/Pagination";
+import Sidebar from "./Components/Sidebar";
 
 class App extends Component {
   constructor(props) {
@@ -9,8 +10,13 @@ class App extends Component {
     this.state = {
       pageVisible: 1,
       pageStarts: 0,
+      activeTag: "",
     };
   }
+
+  getActiveTag = (activeTag) => {
+    this.setState({ activeTag });
+  };
 
   handlePage = (input) => {
     let count = this.state.pageVisible;
@@ -34,23 +40,24 @@ class App extends Component {
   fetchArticles = (limit = 10) => {
     this.setState({ fetchedData: null });
 
-    let query = "";
-
-    if (this.props.match.params.query) {
-      query = "tag=" + this.props.match.params.query + "&";
-    }
+    let tagQuery = this.props.match.params.tag + "&";
+    let slugQuery = this.props.match.params.slug + "&";
 
     let offset = (this.state.pageVisible - 1) * limit;
 
     let url =
       "https://api.realworld.io/api/articles?" +
-      query +
+      (tagQuery ? "tag=" + tagQuery + "&" : "") +
+      (slugQuery ? "article=" + slugQuery + "&" : "") +
       "limit=" +
       limit +
       "&offset=" +
       offset;
 
     console.log(url, "url");
+
+    this.props.match.params.tag &&
+      this.getActiveTag(this.props.match.params.tag);
 
     fetch(url)
       .then((res) => res.json())
@@ -69,25 +76,28 @@ class App extends Component {
 
   componentDidUpdate(prevProps) {
     if (
-      !this.props.match.params.query &&
-      prevProps.match.params.query !== this.props.match.params.query
+      !this.props.match.params.tag &&
+      prevProps.match.params.tag !== this.props.match.params.tag
     ) {
+      this.setState({ activeTag: "" });
       this.fetchArticles();
     }
   }
 
   render() {
-    const { query } = this.props.match.params;
+    const { tag } = this.props.match.params;
 
     return (
       <div>
+        <Sidebar activeTag={this.state.activeTag} />
+
         <Main
           fetchArticles={this.fetchArticles}
           pageVisible={this.state.pageVisible}
           fetchedData={this.state.fetchedData}
-          query={query}
+          tag={tag}
         />
-        <Tags />
+        <Tags getActiveTag={this.getActiveTag} />
 
         {this.state.totalPages && this.state.fetchedData && (
           <Pagination

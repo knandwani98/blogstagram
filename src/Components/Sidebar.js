@@ -1,21 +1,8 @@
 import React from "react";
-import "./sidebar.scss";
+import "../style/sidebar.scss";
 import { Link, NavLink } from "react-router-dom/cjs/react-router-dom.min";
 
-let topics = [
-  "Gaming",
-  "Sports",
-  "TV",
-  "Travel",
-  "Health & Fitness",
-  "Fashion",
-  "Business",
-  "Technology",
-  "Beauty",
-  "Lifestyle",
-];
-
-const Sidebar = () => {
+const Sidebar = ({ activeTag }) => {
   return (
     <aside className="side-bar">
       <nav>
@@ -29,37 +16,16 @@ const Sidebar = () => {
               Global
             </NavLink>
           </li>
-
-          <li>
-            <NavLink
-              to="/trending"
-              activeClassName="active"
-              className="navlink"
-            >
-              <span>
-                <i className="fa-solid fa-arrow-up-right-from-square"></i>
-              </span>
-              Trending
-            </NavLink>
-          </li>
-        </ul>
-        <h2>Tags</h2>
-        <ul>
-          {topics.map((tag) => {
-            return (
-              <li key={tag}>
-                <NavLink
-                  to={"/" + tag.toLowerCase()}
-                  activeClassName="active"
-                  className="navlink"
-                >
-                  {tag}
-                </NavLink>
-              </li>
-            );
-          })}
-
-          <li>More</li>
+          {activeTag && (
+            <li>
+              <Link activeClassName="active" className="navlink active">
+                <span>
+                  <i className="fa-solid fa-arrow-up-right-from-square"></i>
+                </span>
+                #{activeTag}
+              </Link>
+            </li>
+          )}
         </ul>
       </nav>
 

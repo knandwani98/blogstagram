@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./form.scss";
+import "../style/form.scss";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 class Login extends Component {

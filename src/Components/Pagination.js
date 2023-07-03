@@ -1,5 +1,5 @@
 import React from "react";
-import "./pagination.scss";
+import "../style/pagination.scss";
 
 const Pagination = ({ pageVisible, handlePage, totalPages }) => {
   let allPages = [];
@@ -16,7 +16,7 @@ const Pagination = ({ pageVisible, handlePage, totalPages }) => {
         <button onClick={() => handlePage("prev")}>Prev</button>
       )}
 
-      {allPages.length > 1 &&
+      {allPages.length > 0 &&
         allPages.map((page, i) => {
           if (i < 10) {
             return (

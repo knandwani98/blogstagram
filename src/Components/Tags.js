@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 import Loader from "./Loader";
-import "./tags.scss";
+import "../style/tags.scss";
 
 class Tags extends Component {
   constructor(props) {
