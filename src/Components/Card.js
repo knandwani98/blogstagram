@@ -19,7 +19,15 @@ const Card = ({ article }) => {
           </div>
 
           <div className="follow">
-            <div className="follow-btn"></div>
+            <button
+              className={
+                !article.author.following
+                  ? "follow-btn"
+                  : "follow-btn following"
+              }
+            >
+              {!article.author.following ? "follow" : "following"}
+            </button>
           </div>
         </div>
       </header>

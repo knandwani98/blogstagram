@@ -9,8 +9,8 @@ class App extends Component {
     super();
     this.state = {
       pageVisible: 1,
-      pageStarts: 0,
       activeTag: "",
+      activeUser: null,
     };
   }
 
@@ -37,24 +37,20 @@ class App extends Component {
     return;
   };
 
-  fetchArticles = (limit = 10) => {
+  fetchArticles = (msg, limit = 10) => {
     this.setState({ fetchedData: null });
 
-    let tagQuery = this.props.match.params.tag + "&";
-    let slugQuery = this.props.match.params.slug + "&";
+    let tagQuery = this.props.match.params.tag;
 
     let offset = (this.state.pageVisible - 1) * limit;
 
     let url =
-      "https://api.realworld.io/api/articles?" +
-      (tagQuery ? "tag=" + tagQuery + "&" : "") +
-      (slugQuery ? "article=" + slugQuery + "&" : "") +
-      "limit=" +
+      "https://api.realworld.io/api/articles" +
+      "?limit=" +
       limit +
       "&offset=" +
-      offset;
-
-    console.log(url, "url");
+      offset +
+      (tagQuery ? "?tag=" + tagQuery + "&" : "");
 
     this.props.match.params.tag &&
       this.getActiveTag(this.props.match.params.tag);
@@ -62,7 +58,7 @@ class App extends Component {
     fetch(url)
       .then((res) => res.json())
       .then((arr) => {
-        console.log(arr);
+        // console.log(arr, msg);
         this.setState({
           fetchedData: arr.articles,
           totalPages: Math.ceil(arr.articlesCount / 10),
@@ -71,7 +67,7 @@ class App extends Component {
   };
 
   componentDidMount() {
-    this.fetchArticles();
+    this.fetchArticles("componentDidMount");
   }
 
   componentDidUpdate(prevProps) {
@@ -97,6 +93,7 @@ class App extends Component {
           fetchedData={this.state.fetchedData}
           tag={tag}
         />
+
         <Tags getActiveTag={this.getActiveTag} />
 
         {this.state.totalPages && this.state.fetchedData && (
@@ -105,7 +102,6 @@ class App extends Component {
             pageVisible={this.state.pageVisible}
             fetchedData={this.state.fetchedData}
             handlePage={this.handlePage}
-            pageStarts={this.state.pageStarts}
           />
         )}
       </div>

@@ -10,14 +10,25 @@
   place-content: center;
 }
 
+.error-msg {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--accent);
+}
+
+.error-form {
+  border: 1px solid var(--accent);
+}
+
 .form {
   text-align: center;
   border: 1px solid var(--light);
   background-color: black;
   border-radius: 8px;
   min-height: 90vh;
-  width: 100% !important;
-  min-width: 400px;
+  // width: 100% !important;
+  width: 400px;
   padding: 2rem;
   justify-content: center;
   position: relative;

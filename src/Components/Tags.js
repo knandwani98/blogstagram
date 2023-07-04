@@ -54,7 +54,7 @@ class Tags extends Component {
                 key={tag}
                 className="navlink"
                 activeClassName={"active"}
-                to={"/" + tag}
+                to={"/articles/tag/" + tag}
               >
                 {tag}
               </NavLink>

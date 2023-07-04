@@ -10,7 +10,7 @@ import Header from "./Components/Header";
 import App from "./App";
 import SignUp from "./Components/SignUp";
 import Login from "./Components/Login";
-import singleArticle from "./Components/singleArticle";
+import SingleArticle from "./Components/SingleArticle";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -19,8 +19,8 @@ root.render(
     <Switch>
       <Route exact path="/login" component={Login} />
       <Route exact path="/signup" component={SignUp} />
-      <Route path="/:tag" component={App} />
-      <Route path="/:slug" component={singleArticle} />
+      <Route exact path="/articles/tag/:tag" component={App} />
+      <Route exact path="/articles/:slug" component={SingleArticle} />
       <Route exact path="/" component={App} />
     </Switch>
   </BrowserRouter>

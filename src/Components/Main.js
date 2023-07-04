@@ -7,16 +7,11 @@ class Main extends Component {
     this.state = {};
   }
 
-  componentDidMount() {
-    this.props.fetchArticles();
-  }
-
   componentDidUpdate(prevProps) {
-    if (prevProps.pageVisible !== this.props.pageVisible) {
-      this.props.fetchArticles();
-    }
-
-    if (this.props.tag && prevProps.tag !== this.props.tag) {
+    if (
+      prevProps.pageVisible !== this.props.pageVisible ||
+      (this.props.tag && prevProps.tag !== this.props.tag)
+    ) {
       this.props.fetchArticles();
     }
   }
