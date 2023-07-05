@@ -3,6 +3,7 @@ import { articlesUrl } from "../Utility/constants";
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 import Loader from "./Loader";
 import Sidebar from "./Sidebar";
+import Header from "./Header";
 
 class SingleArticle extends React.Component {
   state = {
@@ -38,6 +39,8 @@ class SingleArticle extends React.Component {
 
     return (
       <div>
+        <Header />
+
         <main>
           <Sidebar activeTag={this.state.activeTag} />
 

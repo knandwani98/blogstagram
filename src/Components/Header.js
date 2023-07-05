@@ -51,11 +51,17 @@ class Header extends React.Component {
           </div>
 
           {loggedInUser ? (
-            <Link to="/" className="login-btn">
-              <button onClick={() => this.logOut("loggedInUser")}>
-                Logout
-              </button>
-            </Link>
+            <div className="flex ">
+              <Link to="/articles/new" className="login-btn">
+                <button>Add Article</button>
+              </Link>
+
+              <Link to="/" className="login-btn">
+                <button onClick={() => this.logOut("loggedInUser")}>
+                  Logout
+                </button>
+              </Link>
+            </div>
           ) : (
             <Link to="/login" className="login-btn">
               <button>Login</button>

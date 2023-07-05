@@ -3,6 +3,7 @@ import Tags from "./Components/Tags";
 import Main from "./Components/Main";
 import Pagination from "./Components/Pagination";
 import Sidebar from "./Components/Sidebar";
+import Header from "./Components/Header";
 
 class App extends Component {
   constructor(props) {
@@ -85,6 +86,8 @@ class App extends Component {
 
     return (
       <div>
+        <Header />
+
         <Sidebar activeTag={this.state.activeTag} />
 
         <Main

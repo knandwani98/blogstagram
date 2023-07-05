@@ -29,6 +29,7 @@ const Pagination = ({ pageVisible, handlePage, totalPages }) => {
               </button>
             );
           }
+          return;
         })}
 
       {/* Next Button */}
