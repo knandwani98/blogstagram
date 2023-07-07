@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/blogstagram/static/css/main.9af5ceef.css",
-    "main.js": "/blogstagram/static/js/main.cecdeb1a.js",
+    "main.css": "/blogstagram/static/css/main.38a5673f.css",
+    "main.js": "/blogstagram/static/js/main.0f28f6a6.js",
     "index.html": "/blogstagram/index.html",
-    "main.9af5ceef.css.map": "/blogstagram/static/css/main.9af5ceef.css.map",
-    "main.cecdeb1a.js.map": "/blogstagram/static/js/main.cecdeb1a.js.map"
+    "main.38a5673f.css.map": "/blogstagram/static/css/main.38a5673f.css.map",
+    "main.0f28f6a6.js.map": "/blogstagram/static/js/main.0f28f6a6.js.map"
   },
   "entrypoints": [
-    "static/css/main.9af5ceef.css",
-    "static/js/main.cecdeb1a.js"
+    "static/css/main.38a5673f.css",
+    "static/js/main.0f28f6a6.js"
   ]
 }
